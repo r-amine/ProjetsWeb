@@ -1,0 +1,410 @@
+/*
+ * Atelier Développement Web 1 — CSS Atelier 2 : Flexbox et positionnement
+ * Fichier de départ à compléter par les étudiants.
+ *
+ * Consigne : remplacez chaque TODO par les propriétés CSS demandées dans le sujet.
+ * Les couleurs principales et quelques alignements de texte sont déjà fournis.
+ */
+
+/* ==================================================
+   ÉTAPE 1 : BASES CSS ET MODÈLE DE BOÎTE
+   ================================================== */
+
+/* TODO 1.1 : appliquer box-sizing: border-box à tous les éléments */
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #263238;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Titres des sections */
+h2 {
+  margin-bottom: 10px;
+  color: #173b57;
+  text-align: center;
+}
+
+h3 {
+  /* TODO 1.3 : couleur du titre */
+  color: #173b57;
+}
+
+/* TODO 1.4 : supprimer le soulignement de tous les liens */
+a {
+  text-decoration: none;
+}
+
+/* Bouton commun : liens et boutons */
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #087f8c;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* TODO 1.6 : au survol, changer le fond du bouton */
+.btn:hover {
+  background-color: #065d68;
+}
+
+/* TODO 1.6 : au focus clavier, ajouter un contour jaune décalé */
+.btn:focus {
+  outline: 3px solid #f4b942;
+  outline-offset: 3px;
+}
+
+/* Variante secondaire du bouton */
+.btn-secondaire {
+  background-color: #e8f1f5;
+  color: #173b57;
+}
+
+/* TODO 1.7 : couleur de fond au survol du bouton secondaire */
+.btn-secondaire:hover {
+  background-color: #cbdfe8;
+}
+
+/* ==================================================
+   ÉTAPE 2 : NAVIGATION AVEC FLEXBOX
+   ================================================== */
+
+.entete {
+  background-color: #173b57;
+  background-color: #173b57;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Liste des liens de navigation */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* TODO 2.5 : au survol, le texte des liens devient jaune */
+.menu a:hover {
+  color: #f4b942;
+}
+
+.btn-nav {
+  background-color: #f4b942;
+  color: #173b57;
+}
+
+/* TODO 2.6 : fond du bouton « Participer » au survol */
+.btn-nav:hover {
+  background-color: #e2a525;
+}
+
+/* ==================================================
+   ÉTAPE 3 : BANNIÈRE, SECTIONS ET CARTES
+   ================================================== */
+
+/* 3.A — Bannière principale */
+.hero {
+  position: relative;
+  min-height: 350px;
+  padding: 75px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(135deg, #173b57, #087f8c);
+}
+
+/* Contenu de la bannière */
+.hero-contenu {
+  max-width: 700px;
+}
+
+.hero h1 {
+  margin: 10px 0;
+  font-size: 46px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.hero .surtitre {
+  color: #f4d58d;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Ruban placé dans le coin supérieur droit de la bannière */
+.ruban {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background-color: #f4b942;
+  color: #173b57;
+  font-weight: bold;
+}
+
+/* 3.B — Sections générales */
+.section {
+  padding: 55px 24px;
+}
+
+.section-grise {
+  background-color: #f3f6f8;
+}
+
+.description {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+/* 3.C — Chiffres clés */
+.chiffres {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 35px;
+}
+
+.chiffre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  padding: 10px 25px;
+}
+
+/* TODO 3.9 : bordure gauche sur chaque .chiffre précédé d'un autre .chiffre */
+.chiffre + .chiffre {
+  border-left: 2px solid #d7e2e8;
+}
+
+.chiffre strong {
+  color: #087f8c;
+  font-size: 30px;
+}
+
+.chiffre span {
+  color: #526570;
+}
+
+/* 3.D — Grille des cartes d'ateliers */
+.ateliers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.atelier {
+    position: relative;
+  flex: 1 1 280px;
+  max-width: 360px;
+  padding: 30px 24px;
+  padding-top: 45px;
+  background-color: #ffffff;
+  border: 1px solid #dce5e9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.atelier p {
+  color: #526570;
+}
+
+.horaire {
+  font-weight: bold;
+}
+
+/* Badge placé dans le coin supérieur droit de la carte */
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background-color: #e8f1f5;
+  color: #173b57;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.populaire {
+  border: 2px solid #087f8c;
+  background-color: #f0fbfb;
+}
+
+/* ==================================================
+   ÉTAPE 4 : FORMULAIRE
+   ================================================== */
+
+.formulaire {
+  max-width: 850px;
+  margin: 30px auto 0;
+  padding: 30px;
+  background-color: #f8fafb;
+  border: 1px solid #dce5e9;
+  border-radius: 10px;
+}
+
+/* Deux champs peuvent se placer sur la même ligne */
+.form-ligne {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 250px;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.champ label {
+  font-weight: bold;
+  color: #173b57;
+}
+
+/* Regrouper les trois types de champs dans un seul sélecteur */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #bdcbd2;
+  border-radius: 5px;
+  font: inherit;
+  background-color: #ffffff;
+}
+
+/* TODO 4.5 : au focus, contour et bordure de couleur #087f8c */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #087f8c;
+  border-color: #087f8c;
+}
+
+fieldset {
+  margin: 10px 0 25px;
+  padding: 18px;
+  border: 1px solid #bdcbd2;
+  border-radius: 6px;
+}
+
+legend {
+  padding: 0 8px;
+  color: #173b57;
+  font-weight: bold;
+}
+
+/* Options du niveau */
+.choix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.choix label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.choix input {
+  width: auto;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ==================================================
+   ÉTAPE 5 : PIED DE PAGE ET BOUTON « HAUT »
+   ================================================== */
+
+.pied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 22px 24px;
+  background-color: #173b57;
+  color: #ffffff;
+}
+
+.pied p {
+  margin: 0;
+}
+
+/* Bouton de retour en haut de page */
+.haut {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #087f8c;
+  font-size: 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
